@@ -4,19 +4,43 @@
 <!-- VFW 0113 -->
 <html>
 	<head>
+	<meta charset="utf-8"/>
+	<meta name="description" content="EndulsArte Cake Designs Forms Page."/>
+	<meta name="keywords" content="cake, cake designs, EndulsArte, dulce, biscocho"/>
+	<meta name="robots" content="index, nofollow"/>
 	<meta />
-	<meta />
-	<meta />
-	<meta />
-	<meta />
+	<meta name="viewport" content="user-scalable=no, width=device-width" />
+	<meta name="viewport" content="target-densitydpi=device-dpi" />
 	<title></title>
 	</head>
 	
 		<body>
 			<header>
-				<h1></h1>
+				<h1>EndulsArte Cake Designs</h1>
 			</header>
-			<label for="email">Enter your Email</label>
-			<input type="email" id="email" name="email">
+			<form action="#" method="post">
+				<fieldset>
+					<legend><h2>Form Selection</h2></legend>
+					<h3>Please Choose Type of Form Below</h3>
+						<ul>
+							<li><input type="radio" checked value="Purchase" id="purchase" name="formtype"/>
+					<label for="purchase">Purchase</label></li>
+					<input type="radio" value="Information"	id="information" name="formtype"/>
+					<label for="information">Information Request</label>
+					<input type="radio" value="Subscribe" id="subscribe" name="formtype"/>
+					<label for="subscribe">Subscribe to Newsletter</label>
+					<label for="firstName">Name:</label>
+					<input type="text" id="firstName" placeholder="First Name"/>
+	
+				
+				<label for="email">Enter your Email</label>
+				<input type="email" id="email" name="email" placeholder="youremail@host.com"/>
+				<label for="quantity">Quantity</label>
+				<input type="range" min="1" max="100" name="quantity" type="range"/>
+				<label for="duedate">Expected Date</label>
+				<input type="date"  id="duedate" required aria-required="true"/>
+				
+				</fieldset>
+			</form>
 		</body>
 </html>
