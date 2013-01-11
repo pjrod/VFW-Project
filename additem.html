@@ -8,10 +8,10 @@
 	<meta name="description" content="EndulsArte Cake Designs Forms Page."/>
 	<meta name="keywords" content="cake, cake designs, EndulsArte, dulce, biscocho"/>
 	<meta name="robots" content="index, nofollow"/>
-	<meta />
 	<meta name="viewport" content="user-scalable=no, width=device-width" />
 	<meta name="viewport" content="target-densitydpi=device-dpi" />
-	<title></title>
+	<title>EndulsArte Cake Designs Forms</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css" /><!--For later use for CSS -->
 	</head>
 	
 		<body>
@@ -23,24 +23,74 @@
 					<legend><h2>Form Selection</h2></legend>
 					<h3>Please Choose Type of Form Below</h3>
 						<ul>
-							<li><input type="radio" checked value="Purchase" id="purchase" name="formtype"/>
-					<label for="purchase">Purchase</label></li>
-					<input type="radio" value="Information"	id="information" name="formtype"/>
-					<label for="information">Information Request</label>
-					<input type="radio" value="Subscribe" id="subscribe" name="formtype"/>
-					<label for="subscribe">Subscribe to Newsletter</label>
-					<label for="firstName">Name:</label>
-					<input type="text" id="firstName" placeholder="First Name"/>
-	
-				
-				<label for="email">Enter your Email</label>
-				<input type="email" id="email" name="email" placeholder="youremail@host.com"/>
-				<label for="quantity">Quantity</label>
-				<input type="range" min="1" max="100" name="quantity" type="range"/>
-				<label for="duedate">Expected Date</label>
-				<input type="date"  id="duedate" required aria-required="true"/>
-				
+							<li><input type="radio" checked value="Place Order" id="placeOrder" name="formtype"/>
+								<label for="placeOrder">Place Order</label></li>
+							<li><input type="radio" value="Information"	id="information" name="formtype"/>
+								<label for="information">Information Request</label></li>
+							<li><input type="radio" value="Subscribe" id="subscribe" name="formtype"/>
+								<label for="subscribe">Subscribe to Newsletter</label></li>
+						</ul>
 				</fieldset>
+				<fieldset>
+					<legend><b>Fill Out Form Below</b></legend>
+						<ul>
+							<li><label for="firstName">Name:</label>
+							<input type="text" id="firstName" placeholder="First Name"/></li>
+							<li><label for="lastName">Last Name</label>
+							<input type="text" id="lastName" placeholder="Last Name"/></li>
+							<li><label for="email">Enter your Email</label>
+							<input type="email" id="email" name="email" placeholder="youremail@host.com"/></li>
+							<li><label for="activity">Type of Activity</label>
+								<select id="activity">
+									<optgroup label="Kids">
+										<option>Birthdays</option>
+										<option>Graduations</option>
+										<option>School Activity</option>
+									</optgroup>
+									<optgroup label="Adults">
+										<option>Weddings</option>
+										<option>Bachelor Party</option>
+										<option>Bachelorette Party</option>
+										<option>Baby Shower</option>
+									</optgroup>
+									<optgroup label="Miscelaneous">
+										<option>Job Related</option>
+										<option>Going Away</option>
+										<option>Get Well</option>
+										<option>Other</option>
+									</optgroup>
+								</select>
+								<label for="other" hidden>Other(specify)</label><!-- will show up after selecting other later use -->
+								<input type="text" disabled="disabled" hidden/><!-- will show up after selecting other later use -->
+							</li>
+							<li><label for="flavorType">Select a Flavor</label>
+								<select id="flavorType">
+									<option>Flavor 1</option>
+									<option>Flavor 2</option>
+									<option>Flavor 3</option>
+								</select>
+							</li>
+							<li><label for="quantity">Quantity</label>
+								<input type="range" min="1" max="100" name="quantity" type="range"/></li>
+							<li><label for="pickupType">Select Type of Pickup</label>
+								<select id="pickupType">
+									<option>Delivered</option>
+									<option>Self Pickup</option>
+								</select>
+								<input type="hidden" name="hiddenItem" value="true"/>
+							</li>
+							<li><label for="duedate">Expected Date</label>
+							<input type="date"  id="duedate" required aria-required="true"/></li>
+					
+							<li><label for="moreInfo">Additional Information</label>
+							<textarea id="moreInfo" placeholder="Enter additional information or information requests here."></textarea></li>
+						</ul>
+					
+				</fieldset>
+				<input type="submit" id="proceed" value="Proceed"/>
+				<input type="reset" id="reset" value="Reset Form"/>
+				<a href="#"><input type="submit" value="Display Data"/></a>
 			</form>
+		<script src="js/jsfile.js" type="text/javascript"></script><!-- For later use -->
 		</body>
 </html>
