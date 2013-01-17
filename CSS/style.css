@@ -4,6 +4,48 @@ VFW project 2
 0113 15JAN2013
 */
 
+body{
+	background-color: #35abb5;
+	font-family: Arial;
+	
+}
+
+
+#formPartOne {
+	
+	background-color: transparent;
+	background-repeat: no-repeat;
+	margin-bottom: 25px;
+	
+}
+
+#formPartTwo {
+	background-color: transparent;
+	background-repeat: no-repeat;
+	margin-top: 20px;
+	
+}
+
+
+#legendOne{ 
+
+	font-family: fantasy;
+	
+}
+
+#legendTwo{
+	font-family: fantasy;
+	text-decoration: underline;
+	
+	 
+}
+
+#addItemHeader {
+	font-family: fantasy;
+	
+}
+
+
 h1 {
 	padding: 20px ;
 	border: 1px black solid ;
@@ -15,27 +57,102 @@ h1 {
 	background-repeat: no-repeat;
 	background-position: right center;
 	font-family: cursive;
-	font-size: ;
-	
+	border-radius: 22px;
 }
 
 li{
 	display:block;
-	visibility: ;
+	
+}
+
+h3 {
+	font-style: normal;
+	font-variant: small-caps;
+	font-family: "Times New Roman";
+	
 }
 
 p{
 	color: #000000 ;
-	font-style: ;
-	font-family: ;
-	font: italic small-caps bold 12px Arial;
-	font-weight: bold;
+	font-style: italic;
+	font-family:  Verdana;
+	font-weight: normal;
 	line-height: 14px ;
-	letter-spacing:;
-	text-align: ;
+	letter-spacing:1px;
 	text-indent:10px;
-	text-transform: ;
-	text-decoration: ;
-	
 	
 }
+
+
+Label {
+	font-family: "Times New Roman";
+	
+}
+
+#firstName {
+	display: block;
+	
+}
+
+#lastName {
+	display: block;
+}
+
+#email {
+	display: block
+	
+}
+
+select {
+	display: block;
+	font-family: cursive;
+}
+
+#rangeSlider {
+	display: block;
+}
+
+#duedate {
+	display: block;
+}
+textarea {
+	display: block;
+	
+}
+
+#proceed {
+	font-variant: small-caps;
+	position: left;
+}
+
+#reset {
+	font-variant: small-caps;
+	position: center;
+	
+}
+
+#displayData {
+	font-variant: small-caps;
+	position: right;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
