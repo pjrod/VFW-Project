@@ -1,0 +1,41 @@
+/*
+Pedro J Rodriguez
+VFW project 2
+0113 15JAN2013
+*/
+
+h1 {
+	padding: 20px ;
+	border: 1px black solid ;
+	margin: 5px 20px 5px 20px ;
+	color: #000000;
+	text-align: left;
+	background-color: #0f84b7;
+	background-image: url(../Images/Biscocho.jpg);
+	background-repeat: no-repeat;
+	background-position: right center;
+	font-family: cursive;
+	font-size: ;
+	
+}
+
+li{
+	display:block;
+	visibility: ;
+}
+
+p{
+	color: #000000 ;
+	font-style: ;
+	font-family: ;
+	font: italic small-caps bold 12px Arial;
+	font-weight: bold;
+	line-height: 14px ;
+	letter-spacing:;
+	text-align: ;
+	text-indent:10px;
+	text-transform: ;
+	text-decoration: ;
+	
+	
+}
