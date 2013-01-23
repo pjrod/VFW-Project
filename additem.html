@@ -32,8 +32,8 @@
 						</ul>
 				</fieldset>
 				
-				</form>
-				<form action="#" method="post" id="formPartTwo">
+				<!--</form>
+				<form action="#" method="post" id="formPartTwo">-->
 					<fieldset>
 					<legend id="legendTwo">Fill Out Form Below</legend>
 						<ul>
@@ -44,7 +44,36 @@
 							<li><label for="email">Enter your Email</label>
 							<input type="email" id="email" name="email" placeholder="youremail@host.com"/></li>
 							<li><label for="activity">Type of Activity</label>
-								<select id="activity">
+								<li id="select">
+								<label for="other" hidden>Other(specify)</label><!-- will show up after selecting other later use -->
+								<input type="text" disabled="disabled" hidden/><!-- will show up after selecting other later use -->
+							</li>
+							<li><label for="flavorType">Select a Flavor</label>
+								<li id="flavorType">
+							</li>
+							<li><label for="quantity">Quantity</label>
+								<input type="range" min="1" max="100" name="quantity" id="rangeSlider"/></li>
+							<li><label for="pickupType">Select Type of Pickup</label>
+								<li id="pickupType">
+								<input type="hidden" name="hiddenItem" value="true"/>
+							</li>
+							<li><label for="duedate">Expected Date</label>
+							<input type="date"  id="duedate" required aria-required="true"/></li>
+					
+							<li><label for="moreInfo">Additional Information</label>
+							<textarea id="moreInfo" placeholder="Enter additional information or information requests here."></textarea></li>
+						</ul>
+				</form>	
+				</fieldset>
+				<input type="submit" id="proceed" value="Proceed"/>
+				<input type="reset" id="reset" value="Reset Form"/>
+				<a href="#"><input type="submit" value="Display Data" id="displayData"/></a>
+				<a href="additem.html"><input type="submit" value="Make Another Request" id="anotherRequest" style="display:none;"></a>
+			</form>
+		<script src="js/main.js" type="text/javascript"></script><!-- For later use -->
+		</body>
+</html>
+<!--<select id="activity">
 									<optgroup label="Kids">
 										<option>Birthdays</option>
 										<option>Graduations</option>
@@ -63,37 +92,14 @@
 										<option>Other</option>
 									</optgroup>
 								</select>
-								<label for="other" hidden>Other(specify)</label><!-- will show up after selecting other later use -->
-								<input type="text" disabled="disabled" hidden/><!-- will show up after selecting other later use -->
-							</li>
-							<li><label for="flavorType">Select a Flavor</label>
 								<select id="flavorType">
 									<option>Flavor 1</option>
 									<option>Flavor 2</option>
 									<option>Flavor 3</option>
 								</select>
-							</li>
-							<li><label for="quantity">Quantity</label>
-								<input type="range" min="1" max="100" name="quantity" id="rangeSlider"/></li>
-							<li><label for="pickupType">Select Type of Pickup</label>
 								<select id="pickupType">
 									<option>Delivered</option>
 									<option>Self Pickup</option>
 								</select>
-								<input type="hidden" name="hiddenItem" value="true"/>
-							</li>
-							<li><label for="duedate">Expected Date</label>
-							<input type="date"  id="duedate" required aria-required="true"/></li>
-					
-							<li><label for="moreInfo">Additional Information</label>
-							<textarea id="moreInfo" placeholder="Enter additional information or information requests here."></textarea></li>
-						</ul>
-				</form>	
-				</fieldset>
-				<input type="submit" id="proceed" value="Proceed"/>
-				<input type="reset" id="reset" value="Reset Form"/>
-				<a href="#"><input type="submit" value="Display Data" id="displayData"/></a>
-			</form>
-		<script src="js/main.js" type="text/javascript"></script><!-- For later use -->
-		</body>
-</html>
+
+-->
