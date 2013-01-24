@@ -1,7 +1,7 @@
 /*
 Pedro J Rodriguez
-VFW Project 2
-0113 16Jan2013
+VFW Project 3
+0113 23Jan2013
 */
 window.addEventListener("DOMContentLoaded", function(){
 	
@@ -125,6 +125,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		$("items").style.display = "block";
 		for(var i=0, stoLen=localStorage.length; i<stoLen; i++){
 			var makeAList = document.createElement("li");
+			var myLinkHolder = document.createElement("li");
 			makeList.appendChild(makeAList);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
@@ -134,12 +135,62 @@ window.addEventListener("DOMContentLoaded", function(){
 			for(var n in theinfo){
 				var makeSubListItem = document.createElement("li");
 				makeASubList.appendChild(makeSubListItem);
-				var optSubText = theinfo[n][0]+" "+ theinfo[n][1];
+				var optSubText = theinfo[n][0]+" "+theinfo[n][1];
 				makeSubListItem.innerHTML = optSubText;
+				makeASubList.appendChild(myLinkHolder);
 			}
+			makeEditButtons(localStorage.key(i), myLinkHolder);
 		}
+
 	}
 	
+	function makeEditButtons(key, myLinkHolder){
+		var editItemLi = document.createElement("a");
+	    editItemLi.href = "#";
+		editItemLi.key = key;
+		var editItemLiText = "Edit Item";
+		editItemLi.addEventListener("click", editMyItem);
+		editItemLi.innerHTML = editItemLiText;
+		myLinkHolder.appendChild(editItemLi);
+		
+		var makeABreak = document.createElement("br");
+		myLinkHolder.appendChild(makeABreak);
+		
+		var deleteItemLi = document.createElement("a");
+		deleteItemLi.href = "#";
+		deleteItemLi.key	= key;
+		var deleteItemText = "Delete Item";
+		//deleteItemLi.addEventListener("click", deleteMyItem);
+		deleteItemLi.innerHTML = deleteItemText;
+		myLinkHolder.appendChild(deleteItemLi);
+	}
+	function editMyItem(){
+		var myValue = localStorage.getItem(this.key);
+		var item = JSON.parse(myValue);
+		
+		myControls("off");
+		var myRadio = document.forms[0].formtype;
+		for(var f=0; f < myRadio.length; f++){
+			if(myRadio[f].value == "placeOrder" && item.formType[1] == "placeOrder"){
+				myRadio[f].setAttribute("checked", "checked");
+			}else if (myRadio[f].value == "information" && item.formType[1] == "information"){
+				myRadio[f].setAttribute("checked", "checked");	
+			}else if (myRadio[f].value == "subscribe" && item.formType[1] == "subscribe"){
+				myRadio[f].setAttribute("checked", "checked");
+			}
+		}
+		$("activity").value = item.activity[1];
+		$("firstName").value = item.firstName[1];
+		$("lastName").value =	item.yourLastName[1];
+		$("email").value = item.email[1];
+		$("flavorGroup").value = item.flavor[1];
+		$("rangeSlider").value = item.howmany[1];
+		$("deliveryType").value = item.delivery[1];
+		$("duedate").value = item.date[1];
+		$("moreInfo").value = item.addinfo[1];
+		
+	}
+		
 	//Variables and function calls
 	var typeOfActivity = ["--Choose The Activity Type--", "Birthdays", "Graduation", "School Activity", "Adult Birthdays", "Weddings", "Bachelor Party", "Bachelorette Party", "Baby Shower", "Job Related", "Going Away", "Get Well", "Other"];
 	var chooseFlavor = ["--Choose The Flavor--", "Flavor 1", "Flavor 2", "Flavor 3"];
@@ -151,7 +202,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	transportation();
 	
 	
-	var placeOrderRadio = document.getElementById("placeOrder");
+	/*var placeOrderRadio = document.getElementById("placeOrder");
 	var informationRadio = document.getElementById("information");
 	var subscribeRadio = document.getElementById("subscribe");
 	var yourName = document.getElementById("firstName");
@@ -163,7 +214,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	var pickupType = document.getElementById("pickupType");
 	var pickaDate = document.getElementById("duedate");
 	var additionalInfo = document.getElementById("moreInfo");
-	var resetForm = document.getElementById("reset");
+	var resetForm = document.getElementById("reset");*/
 		
 	var clearForm = function(){
 		if (localStorage.length === 0){
