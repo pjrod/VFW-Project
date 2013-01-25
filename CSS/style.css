@@ -73,14 +73,14 @@ h3 {
 }
 
 p{
-	color: #000000 ;
+	color:  ;
 	font-style: italic;
 	font-family:  Verdana;
 	font-weight: normal;
 	line-height: 14px ;
 	letter-spacing:1px;
 	text-indent:10px;
-	
+	text-align: block;
 }
 
 
@@ -137,6 +137,11 @@ textarea {
 	
 }
 
+#valErrors {
+	color: #ff0000;
+	text-shadow: 5px 5px 10px #000000;
+	text-decoration: underline;
+}
 
 
 

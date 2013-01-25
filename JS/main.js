@@ -94,8 +94,12 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	//to store the data
-	function proceedWithForm(){
-		var id = Math.floor(Math.random()*10000001);
+	function proceedWithForm(key){
+		if(!(key)){
+			var id = Math.floor(Math.random()*10000001);
+		}else{
+			id = key;
+		}
 		getRadio();
 		var item 				= {};
 			item.formType		= ["Choose Type of Form: ", formTypeValue];
@@ -114,7 +118,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	function getData(){
 		myControls("on");
-		if (localStorage.length ===0){
+		if (localStorage.length === 0){
 			alert("You Have Not Added Any Data!!");
 		}
 		var makeDiv = document.createElement("div");
@@ -132,11 +136,11 @@ window.addEventListener("DOMContentLoaded", function(){
 			var theinfo = JSON.parse(value);
 			var makeASubList = document.createElement("ul");
 			makeAList.appendChild(makeASubList);
-			for(var n in theinfo){
+			for(var x in theinfo){
 				var makeSubListItem = document.createElement("li");
 				makeASubList.appendChild(makeSubListItem);
-				var optSubText = theinfo[n][0]+" "+theinfo[n][1];
-				makeSubListItem.innerHTML = optSubText;
+				var optionSubText = theinfo[x][0]+" "+theinfo[x][1];
+				makeSubListItem.innerHTML = optionSubText;
 				makeASubList.appendChild(myLinkHolder);
 			}
 			makeEditButtons(localStorage.key(i), myLinkHolder);
@@ -158,12 +162,25 @@ window.addEventListener("DOMContentLoaded", function(){
 		
 		var deleteItemLi = document.createElement("a");
 		deleteItemLi.href = "#";
-		deleteItemLi.key	= key;
+		deleteItemLi.key  = key;
 		var deleteItemText = "Delete Item";
-		//deleteItemLi.addEventListener("click", deleteMyItem);
+		deleteItemLi.addEventListener("click", deleteMyItem);
 		deleteItemLi.innerHTML = deleteItemText;
 		myLinkHolder.appendChild(deleteItemLi);
 	}
+	function deleteMyItem(){
+		var say = confirm("All content will be deleted!!");
+		if(say){
+			localStorage.removeItem(this.key);
+			window.location.reload();	
+		}else{
+			alert("Items are not DELETED");
+			window.location.reload();
+			return false;
+		}
+	}
+	
+	//this funciton edits the items in your form
 	function editMyItem(){
 		var myValue = localStorage.getItem(this.key);
 		var item = JSON.parse(myValue);
@@ -189,14 +206,60 @@ window.addEventListener("DOMContentLoaded", function(){
 		$("duedate").value = item.date[1];
 		$("moreInfo").value = item.addinfo[1];
 		
+		proceed.removeEventListener("click", proceedWithForm);
+		$("proceed").value = "Edit Information";
+		var editInformationSubmit = $("proceed");
+		editInformationSubmit.addEventListener("click", validateFields);
+		editInformationSubmit.key = this.key;
+			
 	}
+	function validateFields(z){
+		var getFirstName = $("firstName");
+		var getLastName  = $("lastName");
+		var getTheEmail  = $("email");
 		
+		valErrors.innerHTML = "";
+		getFirstName.style.border = "1px solid black";
+		getLastName.style.border =  "1px solid black";
+		getTheEmail.style.border = "1px solid black";
+		
+		//This will be the error messages
+		var myMessageArray = [];
+		if(getFirstName.value === ""){
+			var getFirstNameError = "Please Enter A First Name!";
+			getFirstName.style.border = "2px solid yellow";
+			myMessageArray.push(getFirstNameError);	
+		}
+		if(getLastName.value === ""){
+			var getLastNameError = "Please Enter A Last Name!";
+			getLastName.style.border =  "2px solid yellow";
+			myMessageArray.push(getLastNameError);
+		}
+		var emailVal = /^\w+([\.-]?\w+)*@\w+([\.-])*(\.\w{2,3})+$/;
+		if(!(emailVal.exec(getTheEmail.value))){
+			var getTheEmailError = "Please Enter A Correct Email!";
+			getTheEmail.style.border = " 2px solid yellow";
+			myMessageArray.push(getTheEmailError);
+		}
+		
+		if(myMessageArray.length >= 1){
+			for(var g=0, h=myMessageArray.length; g < h; g++){
+				var errorText = document.createElement("li");
+				errorText.innerHTML = myMessageArray[g];
+				valErrors.appendChild(errorText);
+				}
+				z.preventDefault();
+				return false;
+		}else{
+			proceedWithForm(this.key);
+		}
+	}	
 	//Variables and function calls
 	var typeOfActivity = ["--Choose The Activity Type--", "Birthdays", "Graduation", "School Activity", "Adult Birthdays", "Weddings", "Bachelor Party", "Bachelorette Party", "Baby Shower", "Job Related", "Going Away", "Get Well", "Other"];
 	var chooseFlavor = ["--Choose The Flavor--", "Flavor 1", "Flavor 2", "Flavor 3"];
 	var selectPickupType= ["--Choose Your Delivery Method--", "Delivered", "Self Pickup"];
 	var formTypeValue;
-
+	var valErrors = $("valErrors");
 	activities();
 	flavor();
 	transportation();
@@ -233,7 +296,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	var clearMyform = $("reset");
 	clearMyform.addEventListener("click", clearForm);	
 	var proceed = $("proceed");
-	proceed.addEventListener("click", proceedWithForm);
+	proceed.addEventListener("click", validateFields);
 	
 });
 
