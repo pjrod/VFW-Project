@@ -137,6 +137,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			var theinfo = JSON.parse(value);
 			var makeASubList = document.createElement("ul");
 			makeAList.appendChild(makeASubList);
+			getSetImage(theinfo.activity[1], makeASubList);
 			for(var x in theinfo){
 				var makeSubListItem = document.createElement("li");
 				makeASubList.appendChild(makeSubListItem);
@@ -147,6 +148,13 @@ window.addEventListener("DOMContentLoaded", function(){
 			makeEditButtons(localStorage.key(i), myLinkHolder);
 		}
 
+	}
+	function getSetImage(imgName, makeASubList){
+		var imageList = document.createElement("li");
+		makeASubList.appendChild(imageList);
+		var myNewImage 	= document.createElement("img");
+		var imgSource	= myNewImage.setAttribute("src", "Images/"+ imgName + ".png");
+		imageList.appendChild(myNewImage);
 	}
 	function fillTestData(){
 		for(var i in json){

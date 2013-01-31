@@ -1,3 +1,6 @@
+//Pedro J Rodriguez
+//VFW 0113 31Jan2013
+//Project 4 json.js file
 //creating jason data for use with testing app
 var json = {
 	"userOne": {
