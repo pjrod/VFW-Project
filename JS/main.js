@@ -1,7 +1,7 @@
 /*
 Pedro J Rodriguez
-VFW Project 3
-0113 23Jan2013
+VFW Project 4
+0113 31Jan2013
 */
 window.addEventListener("DOMContentLoaded", function(){
 	
@@ -119,7 +119,8 @@ window.addEventListener("DOMContentLoaded", function(){
 	function getData(){
 		myControls("on");
 		if (localStorage.length === 0){
-			alert("You Have Not Added Any Data!!");
+			alert("You Have Not Added Any Data! Sample data has been added.");
+			fillTestData();
 		}
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id", "items");
@@ -146,6 +147,12 @@ window.addEventListener("DOMContentLoaded", function(){
 			makeEditButtons(localStorage.key(i), myLinkHolder);
 		}
 
+	}
+	function fillTestData(){
+		for(var i in json){
+			var id = Math.floor(Math.random()*10000001);
+			localStorage.setItem(id, JSON.stringify(json[i]));
+		}
 	}
 	
 	function makeEditButtons(key, myLinkHolder){
@@ -263,22 +270,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	activities();
 	flavor();
 	transportation();
-	
-	
-	/*var placeOrderRadio = document.getElementById("placeOrder");
-	var informationRadio = document.getElementById("information");
-	var subscribeRadio = document.getElementById("subscribe");
-	var yourName = document.getElementById("firstName");
-	var lastName = document.getElementById("lastName");
-	var yourEmail = document.getElementById("email");
-	var activityType = document.getElementById("activity");
-	var flavorType = document.getElementById("flavorType");
-	var quantity = document.getElementById("rangeSlider");
-	var pickupType = document.getElementById("pickupType");
-	var pickaDate = document.getElementById("duedate");
-	var additionalInfo = document.getElementById("moreInfo");
-	var resetForm = document.getElementById("reset");*/
-		
+			
 	var clearForm = function(){
 		if (localStorage.length === 0){
 			alert("You have nothing to clear.")
