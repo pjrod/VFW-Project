@@ -188,11 +188,11 @@ window.addEventListener("DOMContentLoaded", function(){
 		myControls("off");
 		var myRadio = document.forms[0].formtype;
 		for(var f=0; f < myRadio.length; f++){
-			if(myRadio[f].value == "placeOrder" && item.formType[1] == "placeOrder"){
+			if(myRadio[f].value == "Place Order" && item.formType[1] == "Place Order"){
 				myRadio[f].setAttribute("checked", "checked");
-			}else if (myRadio[f].value == "information" && item.formType[1] == "information"){
+			}else if (myRadio[f].value == "Information" && item.formType[1] == "Information"){
 				myRadio[f].setAttribute("checked", "checked");	
-			}else if (myRadio[f].value == "subscribe" && item.formType[1] == "subscribe"){
+			}else if (myRadio[f].value == "Subscribe" && item.formType[1] == "Subscribe"){
 				myRadio[f].setAttribute("checked", "checked");
 			}
 		}
