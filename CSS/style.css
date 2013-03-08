@@ -5,11 +5,12 @@ VFW project 4
 */
 
 body{
-	background-color: #35abb5;
+	background-color: #033544;
 	font-family: Arial;
+	color: #ffffff
+	
 	
 }
-
 
 #formPartOne {
 	
@@ -24,18 +25,22 @@ body{
 	background-repeat: no-repeat;
 	margin-top: 20px;
 	
+	
 }
 
 
 #legendOne{ 
 
 	font-family: fantasy;
+	text-decoration: underline;
+	color: #edf022;
 	
 }
 
 #legendTwo{
 	font-family: fantasy;
 	text-decoration: underline;
+	color:	#edf022; 
 	
 	 
 }
@@ -142,8 +147,6 @@ textarea {
 	text-shadow: 5px 5px 10px #000000;
 	text-decoration: underline;
 }
-
-
 
 
 
